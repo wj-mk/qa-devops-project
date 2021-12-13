@@ -1,5 +1,6 @@
-from flask import render_template
+from flask import render_template, flash, redirect
 from application import app
+from forms import Exoplanet_Form
 
 @app.route('/')
 @app.route('/index')
@@ -21,3 +22,8 @@ def index():
         }
     ]
     return render_template('index.html', title='Home', user=user, exoplanets=exoplanets)
+
+@app.route('/entry')
+def entry():
+    form = Exoplanet_Form()
+    return render_template('entry.html', title='Enter Exoplanets', form=form)
