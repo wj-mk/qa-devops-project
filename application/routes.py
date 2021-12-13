@@ -1,6 +1,7 @@
-from flask import render_template, flash, redirect, url_for
-from application import app
+from flask import render_template, flash, redirect, url_for, request
+from application import app, db
 from forms import Exoplanet_Form
+from application.models import Exoplanet
 
 @app.route('/')
 @app.route('/index')
@@ -26,7 +27,17 @@ def index():
 @app.route('/entry', methods=['GET', 'POST'])
 def entry():
     form = Exoplanet_Form()
-    if form.validate_on_submit():
-        flash(f'New exoplanet data for {form.name.data}')
-        return redirect(url_for('/index'))
+
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            exoplanet = Exoplanet(
+                name = form.name.data,
+                system = form.system.data,
+                method = form.method.data,
+                year = form.year.data
+            )
+            db.session.add(exoplanet)
+            db.session.commit()
+            flash(f'New exoplanet data for {form.name.data}')
+            return redirect(url_for('index'))
     return render_template('entry.html', title='Enter Exoplanets', form=form)
