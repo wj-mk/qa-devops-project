@@ -1,2 +1,4 @@
 flask
-flast-wtf
+flask-wtf
+flask-sqlalchemy
+pymysql
