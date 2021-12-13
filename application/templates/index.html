@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+        {% if title %}
         <title>{{ title }} - Exoplanet Project</title>
+        {% else %}
+        <title>Welcome to Expoplanet Project</title>
+        {% endif %}
     </head>
     <body>
         <h1>Exoplanet Data</h1>
