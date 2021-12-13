@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block index_content %}
+    <h2>Welcome, {{ user.username }}</h2>
+    {% for exoplanet in exoplanets  %}
+        <div>
+            <p>
+                Planet {{ exoplanet.name }} is in the {{exoplanet.system}} system.
+            </p>
+        </div>
+    {% endfor %}
+{% endblock %}
