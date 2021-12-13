@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block form_content %}
+{% block content %}
     <h1>Exoplent Entry</h1>
     <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
@@ -9,7 +9,7 @@
         </p>
         <p>
             {{ form.system.label }}<br>
-            {{ form.sytem (size=32) }}
+            {{ form.system (size=32) }}
         </p>
         <p>
             {{ form.method.label }}<br>
