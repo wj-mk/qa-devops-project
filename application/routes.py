@@ -7,21 +7,7 @@ from application.models import Exoplanet
 @app.route('/index')
 def index():
     user = {'username' : 'William'}
-    exoplanets = [
-        {
-            'name': 'AU Mic b',
-            'system': 'AU Mic',
-            'discovery_method': 'Transit',
-            'discover_facility': 'TESS',
-            'confirmed': True,
-            'reference': '',
-            'year': 2020
-        },
-        {
-            'name': 'test1',
-            'system': 'test_system'
-        }
-    ]
+    exoplanets = Exoplanet.query.all()
     return render_template('index.html', title='Home', user=user, exoplanets=exoplanets)
 
 @app.route('/entry', methods=['GET', 'POST'])
