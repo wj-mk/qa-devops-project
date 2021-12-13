@@ -8,3 +8,14 @@ class Exoplanet_Form(FlaskForm):
     method = StringField('Discovery Method', validators=[DataRequired()])
     year = IntegerField('Discovery Year', validators=[DataRequired()])
     submit = SubmitField("Submit Planet")
+
+class EditEntry(FlaskForm):
+    name = StringField('Update Planet Name')
+    system = StringField('Update System Name')
+    method = StringField('Update Discovery Method')
+    year = IntegerField('Update Discovery Year')
+    submit = SubmitField("Update Planet")
+
+class DeleteEntry(FlaskForm):
+    id = IntegerField('Provide the Exoplanet ID', validators=[DataRequired()])
+    submit = SubmitField("Delete Planet")
