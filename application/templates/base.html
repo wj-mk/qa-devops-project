@@ -8,8 +8,20 @@
         {% endif %}
     </head>
     <body>
-        <div>Exoplanet Project: <a href="index">Home</a></div>
+        <div>Exoplanet Project: 
+            <a href="{{ url_for('index')}}">Home</a>
+            <a href="{{ url_for('entry')}}">Enter Data</a>
+        </div>
         <hr>
-        {% block index_content %}{% endblock  %}
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock  %}
     </body>
 </html>
