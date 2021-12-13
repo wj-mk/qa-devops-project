@@ -23,7 +23,10 @@ def index():
     ]
     return render_template('index.html', title='Home', user=user, exoplanets=exoplanets)
 
-@app.route('/entry')
+@app.route('/entry', methods=['GET', 'POST'])
 def entry():
     form = Exoplanet_Form()
+    if form.validate_on_submit():
+        flash(f'New exoplanet data for {form.name.data}')
+        return redirect('/index')
     return render_template('entry.html', title='Enter Exoplanets', form=form)
