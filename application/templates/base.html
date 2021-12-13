@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - Exoplanet Project</title>
+        {% else %}
+        <title>Welcome to Expoplanet Project</title>
+        {% endif %}
+    </head>
+    <body>
+        <div>Exoplanet Project: <a href="index">Home</a></div>
+        <hr>
+        {% block index_content %}{% endblock  %}
+    </body>
+</html>

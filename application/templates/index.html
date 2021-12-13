@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        {% if title %}
-        <title>{{ title }} - Exoplanet Project</title>
-        {% else %}
-        <title>Welcome to Expoplanet Project</title>
-        {% endif %}
-    </head>
-    <body>
-        <h1>Exoplanet Data</h1>
-        <h2>Welcome, {{ user.username }}</h2>
-        {% for exoplanet in exoplanets  %}
+{% extends 'base.html' %}
+{% block index_content %}
+    <h2>Welcome, {{ user.username }}</h2>
+    {% for exoplanet in exoplanets  %}
         <div>
             <p>
                 Planet {{ exoplanet.name }} is in the {{exoplanet.system}} system.
-            </p></div>
-        {% endfor %}
-    </body>
-</html>
+            </p>
+        </div>
+    {% endfor %}
+{% endblock %}
