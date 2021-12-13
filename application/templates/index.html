@@ -4,7 +4,7 @@
     {% for exoplanet in exoplanets  %}
         <div>
             <p>
-                Planet <b>{{ exoplanet.name }}</b> is in the <b>{{exoplanet.system}}</b> system.
+                {{exoplanet.id}}. Planet <b>{{ exoplanet.name }}</b> is in the <b>{{exoplanet.system}}</b> system.
             </p>
         </div>
     {% endfor %}
