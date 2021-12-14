@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Set environment variables') {
             steps{
-                sh "export DATABASE_URI=${path}"
+                echo "${DATABASE_URI}"
             }
         }
         stage('Build') {
