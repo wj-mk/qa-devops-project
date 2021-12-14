@@ -1,4 +1,4 @@
-CREATE TABLE exoplanet (
+CREATE TABLE IF NOT EXISTS exoplanet (
     id         INTEGER NOT NULL AUTO_INCREMENT,
     name       VARCHAR(30) NOT NULL,
     system     VARCHAR(30) NOT NULL,
@@ -9,11 +9,11 @@ CREATE TABLE exoplanet (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 LOCK TABLES `exoplanet` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO 'exoplanet'
+
+INSERT INTO `exoplanet`
 VALUES 
     (1,'Earth','Solar','Looking', 1972),
     (2,'Kepler 16b','Kepler','Transit', 2016),
     (3,'Test','system','method', 55);
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+
 UNLOCK TABLES;
