@@ -14,5 +14,7 @@ services:
       protocol: tcp
     depends_on:
       - mysql
+    environment:
+      - DATABASE_URI=$DATABASE_URI
 
     
