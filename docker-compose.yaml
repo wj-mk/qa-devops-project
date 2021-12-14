@@ -14,7 +14,6 @@ services:
       protocol: tcp
     depends_on:
       - mysql
-    environment:
-      - DATABASE_URI=$DATABASE_URI
-
+    args:
+      DATABASE_URI: mysql+pymysql://root:password@mysql:3306/
     
