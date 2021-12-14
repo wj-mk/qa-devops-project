@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - Exoplanet Project</title>
+        {% else %}
+        <title>Welcome to Expoplanet Project</title>
+        {% endif %}
+    </head>
+    <body>
+        <div>Exoplanet Project: 
+            <a href="{{ url_for('index')}}">Home</a>
+            <a href="{{ url_for('entry')}}">Enter Data</a>
+            <a href="{{ url_for('delete')}}">Delete</a>
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock  %}
+    </body>
+</html>
