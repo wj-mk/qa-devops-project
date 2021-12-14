@@ -2,6 +2,7 @@
 # python3 -m pytest --cov --cov-report term-missing
 
 from flask_testing import TestCase
+from werkzeug.wrappers import response
 from application import app, db
 from application.models import Exoplanet
 from flask import url_for
@@ -42,15 +43,22 @@ class TestViews(TestBase):
         self.assert200
         self.assertIn(b'Earth', response.data)
 
-class TesUpdate(TestBase):
-    def test_post_add(self):
-        response = self.client.post(url_for('entry')),
-        data = dict(
+class TestEntry(TestBase):
+    def test_entry_page(self):
+        response = self.client.get(url_for('entry'))
+        self.assert200
+        self.assertIn(b'Exoplanet', response.data)
+    
+    def test_post_entry(self):
+        response = self.client.post(
+            url_for('entry'),
+            data = dict(
                 name = 'Kepler 16b',
                 system = 'Kepler 16',
                 method = 'Transit',
-                year = 2005,
+                year = 2005
+            ),
+            follow_redirects = True
         )
-        follow_redirects = True,
         self.assert200
         self.assertIn(b'Kepler', response.data)
