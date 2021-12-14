@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for, request
 from application import app, db
-from forms import EditEntry, Exoplanet_Form, DeleteEntry
+from application.forms import EditEntry, Exoplanet_Form, DeleteEntry
 from application.models import Exoplanet
 
 # This route has READ functionality
