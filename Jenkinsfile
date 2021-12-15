@@ -15,7 +15,7 @@ pipeline {
                         configName: "test-build",
                         verbose: true,
                         transfers: [
-                            sshTransfer(echo: "testing")
+                            sshTransfer(echo "testing")
                         ]
                     )
                 ]
