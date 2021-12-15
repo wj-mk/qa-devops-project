@@ -3,9 +3,7 @@ services:
   mysql: 
     image: flask-db
     build: ./db
-    container_name: mysql
   flask-app:
-    container_name: flask-app
     image: flask-app
     environment:
       DATABASE_URI: "mysql+pymysql://root:password@mysql:3306/flask-db"
