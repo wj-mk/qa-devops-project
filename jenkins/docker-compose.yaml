@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  jenkins: 
+    image: jenkins/jenkins:lts-alpine
+    container_name: jenkins
+    volumes:
+      - jenkins-home:/var/jenkins_home
+    ports:
+    - target: 8080
+      published: 80
+      protocol: tcp
+
+volumes:
+  jenkins-home:
