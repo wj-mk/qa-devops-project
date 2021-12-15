@@ -1,20 +1,25 @@
 version: "3.8"
 services:
-  mysql: 
+  mysql:
     image: flask-db
     build: ./db
     deploy:
       replicas: 2
+    volumes:
+      - mysql-data:/var/lib/mysql
   flask-app:
     image: flask-app
     environment:
       DATABASE_URI: "mysql+pymysql://root:password@mysql:3306/flask-db"
     build: ./flask-app
     deploy:
-      replicas: 3
+      replicas: 2
     ports:
     - target: 5000
       published: 5000
       protocol: tcp
     depends_on:
       - mysql
+
+volumes:
+  mysql-data:
