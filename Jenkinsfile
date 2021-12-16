@@ -1,10 +1,7 @@
+
 pipeline{
-
-	agent any
-
+    agent any
     stages {
-
-    
     stage('Build and Test Application') {
             steps([$class: 'BapSshPromotionPublisherPlugin']) {
                 sshPublisher(
@@ -15,7 +12,15 @@ pipeline{
                             verbose: true,
                             transfers: [
                                 sshTransfer(
-                                    execCommand: "git pull"),
+					execCommand: "cd qa-devops-project && git pull"),
+				sshTransfer(
+					execCommand: "cd qa-devops-project && docker-compose up -d"),
+				sshTransfer(
+					execCommand: "docker exec qa-devops-project-flask-app-1 bash -c 'cd tests && python3 -m pytest'"),
+				sshTransfer(
+					execCommand: "docker tag flask-app bh909303/flask-app:${env.BUILD_NUMBER} && docker push bh909303/flask-app:${env.BUILD_NUMBER}"),
+				sshTransfer(
+					execCommand: "docker tag flask-db bh909303/flask-db:${env.BUILD_NUMBER} && docker push bh909303/flask-db:${env.BUILD_NUMBER}")   
                             ]
                         )
                     ]
