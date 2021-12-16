@@ -2,7 +2,7 @@
 pipeline{
     agent any
     stages {
-    stage('Build and Test Application') {
+    stage('Build and Test Application, Push Images to DockerHub') {
             steps([$class: 'BapSshPromotionPublisherPlugin']) {
                 sshPublisher(
                     continueOnError: false, failOnError: true,
@@ -27,5 +27,28 @@ pipeline{
                 )
             }
         }
-}
+    stage('Deploy to DockerSwarm') {
+            steps([$class: 'BapSshPromotionPublisherPlugin']) {
+                sshPublisher(
+                    continueOnError: false, failOnError: true,
+                    publishers: [
+                        sshPublisherDesc(
+                            configName: "swarm",
+                            verbose: true,
+                            transfers: [
+                                sshTransfer(
+					execCommand: "docker pull bh909303/flask-app:${env.BUILD_NUMBER}"),
+				sshTransfer(
+					execCommand: "docker pull bh909303/flask-db:${env.BUILD_NUMBER}"),
+				sshTransfer(
+					execCommand: "docker service update --image bh909303/flask-app:${env.BUILD_NUMBER}"),
+				sshTransfer(
+					execCommand: "docker service update --image bh909303/flask-db:${env.BUILD_NUMBER}")
+                            ]
+                        )
+                    ]
+                )
+            }
+        }	    
+    }
 }
