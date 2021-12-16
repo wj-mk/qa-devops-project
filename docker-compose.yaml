@@ -2,11 +2,9 @@ version: "3.8"
 services:
   mysql:
     image: flask-db
-    container-name: flask-db
     build: ./db
   flask-app:
     image: flask-app
-    container-name: flask-app
     environment:
       DATABASE_URI: "mysql+pymysql://root:password@mysql:3306/flask-db"
     build: ./flask-app
