@@ -22,7 +22,7 @@ pipeline {
                                 sshTransfer(
                                     execCommand: "cd qa-devops-project/ && ls"),
                                 sshTransfer(
-                                    execCommand: "sudo docker-compose up -d"),
+                                    execCommand: "docker-compose up -d"),
                             ]
                         )
                     ]
