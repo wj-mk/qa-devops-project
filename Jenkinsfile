@@ -22,7 +22,7 @@ pipeline {
                                 sshTransfer(
                                     execCommand: "cd qa-devops-project/ && sudo docker-compose up -d"),
                                 sshTransfer(
-                                    execCommand: "sudo docker exec -it qa-devops-project-flask-app-* python3 -m pytest --cov --cov-report term-missing")
+                                    execCommand: "sudo docker exec -it qa-devops-project-flask-app-1 python3 -m pytest --cov --cov-report term-missing")
                             ]
                         )
                     ]
