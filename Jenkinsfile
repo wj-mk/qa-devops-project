@@ -41,9 +41,9 @@ pipeline{
 				sshTransfer(
 					execCommand: "docker pull bh909303/flask-db:${env.BUILD_NUMBER}"),
 				sshTransfer(
-					execCommand: "docker service update --image bh909303/flask-app:${env.BUILD_NUMBER}"),
+					execCommand: "docker service update --image bh909303/flask-app:${env.BUILD_NUMBER} app-stack_flask-app"),
 				sshTransfer(
-					execCommand: "docker service update --image bh909303/flask-db:${env.BUILD_NUMBER}")
+					execCommand: "docker service update --image bh909303/flask-db:${env.BUILD_NUMBER} app-stack_mysql")
                             ]
                         )
                     ]
