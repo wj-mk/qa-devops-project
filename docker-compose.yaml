@@ -3,6 +3,8 @@ services:
   mysql:
     image: flask-db
     build: ./db
+    volumes:
+      - mysql-data:/var/lib/mysql
   flask-app:
     image: flask-app
     environment:
@@ -14,3 +16,6 @@ services:
       protocol: tcp
     depends_on:
       - mysql
+
+volumes:
+  mysql-data:
