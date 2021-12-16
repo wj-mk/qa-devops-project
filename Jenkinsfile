@@ -15,7 +15,7 @@ pipeline{
                             verbose: true,
                             transfers: [
                                 sshTransfer(
-                                    execCommand: "git pull origin jenkins1"),
+                                    execCommand: "git pull"),
                             ]
                         )
                     ]
