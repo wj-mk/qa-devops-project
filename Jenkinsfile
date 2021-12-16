@@ -1,18 +1,18 @@
 pipeline {
+
     agent any 
+
+    enviroment {
+        DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+    }
     stages {
+
         stage('Build') {
             steps {
-                sh 'echo "building the repo"'
-            }
-        }
-        
-        stage('Test') {
-            steps {
-                sh 'python3 -m pytest'
-            }
-        }
 
+                sh 'docker-compose up -d'
+            }
         
     }
+}
 }
