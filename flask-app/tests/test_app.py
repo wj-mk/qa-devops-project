@@ -61,4 +61,4 @@ class TestEntry(TestBase):
             follow_redirects = True
         )
         self.assert200
-        self.assertIn(b'Johnson', response.data)
+        self.assertIn(b'Kepler', response.data)
