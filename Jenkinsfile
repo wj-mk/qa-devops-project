@@ -2,7 +2,7 @@ pipeline {
 
     agent any 
 
-    enviroment {
+    environment {
         DOCKERHUB_CREDENTIALS=credentials('dockerhub')
     }
     stages {
@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
 
-                sh 'docker-compose up -d'
+                sh 'docker-compose build'
             }
         
     }
