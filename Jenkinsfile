@@ -22,7 +22,7 @@ pipeline {
                                 sshTransfer(
                                     execCommand: "cd qa-devops-project/ && sudo docker-compose up -d"),
                                 sshTransfer(
-                                    execCommand: "sudo docker-compose run qa-devops-project-1 python3 -m pytest")
+                                    execCommand: "cd qa-devops-project/ && sudo docker-compose run qa-devops-project-1 python3 -m pytest")
                             ]
                         )
                     ]
