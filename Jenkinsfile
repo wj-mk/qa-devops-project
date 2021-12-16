@@ -1,10 +1,6 @@
 pipeline{
-
-	agent any
-
+    agent any
     stages {
-
-    
     stage('Build and Test Application') {
             steps([$class: 'BapSshPromotionPublisherPlugin']) {
                 sshPublisher(
