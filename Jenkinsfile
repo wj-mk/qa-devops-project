@@ -6,7 +6,7 @@ pipeline {
                 echo "TEST"
             }
         }
-        stage('SSH transfer') {
+        stage('Build and Test Application') {
             steps([$class: 'BapSshPromotionPublisherPlugin']) {
                 sshPublisher(
                     continueOnError: false, failOnError: true,
@@ -19,8 +19,6 @@ pipeline {
                                     execCommand: "rm -rf qa-devops-project"),
                                 sshTransfer(
                                     execCommand: "git clone -b jenkins1 https://github.com/wj-mk/qa-devops-project.git"),
-                                sshTransfer(
-                                    execCommand: "cd qa-devops-project/ && python3 -m pytest --cov --cov-report term-missing"),
                                 sshTransfer(
                                     execCommand: "cd qa-devops-project/ && sudo docker-compose up -d"),
                             ]
