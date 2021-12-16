@@ -7,21 +7,21 @@ pipeline {
             }
         }
         stage('SSH transfer') {
-        steps([$class: 'BapSshPromotionPublisherPlugin']) {
-            sshPublisher(
-                continueOnError: false, failOnError: true,
-                publishers: [
-                    sshPublisherDesc(
-                        configName: "test-build",
-                        verbose: true,
-                        transfers: [
-                            sshTransfer(execCommand: "touch testing.md")
-                        ]
-                    )
-                ]
-            )
+            steps([$class: 'BapSshPromotionPublisherPlugin']) {
+                sshPublisher(
+                    continueOnError: false, failOnError: true,
+                    publishers: [
+                        sshPublisherDesc(
+                            configName: "test-build",
+                            verbose: true,
+                            transfers: [
+                                sshTransfer(execCommand: "git clone jenkins1 https://github.com/wj-mk/qa-devops-project.git")
+                            ]
+                        )
+                    ]
+                )
+            }
         }
-    }
     }
 
 }
