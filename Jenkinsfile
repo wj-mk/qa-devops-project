@@ -19,9 +19,9 @@ pipeline{
 				sshTransfer(
 					execCommand: "cd qa-devops-project && docker-compose up -d"),
 				sshTransfer(
-					execCommand: "docker push bh909303/flaks-app:test"),
+					execCommand: "docker push bh909303/flask-app:test"),
 				sshTransfer(
-					execCommand: "docker push bh909303/flaks-db:test")   
+					execCommand: "docker push bh909303/flask-db:test")   
                             ]
                         )
                     ]
