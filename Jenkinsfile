@@ -14,7 +14,7 @@ pipeline{
                                 sshTransfer(
 					execCommand: "cd qa-devops-project && git pull"),
 				sshTransfer(
-					execCommand: "cd qa-devops-project && docker-compose up -d"),
+					execCommand: "cd qa-devops-project && docker-compose build && docker-compose up -d"),
 				sshTransfer(
 					execCommand: "docker exec qa-devops-project-flask-app-1 bash -c 'cd tests && python3 -m pytest'"),
 				sshTransfer(
