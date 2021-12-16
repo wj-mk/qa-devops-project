@@ -15,7 +15,7 @@ pipeline{
                             verbose: true,
                             transfers: [
                                 sshTransfer(
-                                    execCommand: "git pull -b jenkins1 https://github.com/wj-mk/qa-devops-project"),
+                                    execCommand: "cd qa-deveops-project && git pull -b jenkins1 https://github.com/wj-mk/qa-devops-project"),
                             ]
                         )
                     ]
