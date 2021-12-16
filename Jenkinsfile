@@ -17,7 +17,7 @@ pipeline {
                             transfers: [
                                 sshTransfer(
                                     execCommand: "rm -rf qa-devops-project"),
-                                sshTrasnfer(
+                                sshTransfer(
                                     execCommand: "git clone -b jenkins1 https://github.com/wj-mk/qa-devops-project.git")
                             ]
                         )
