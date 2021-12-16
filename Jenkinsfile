@@ -15,7 +15,7 @@ pipeline{
                             verbose: true,
                             transfers: [
                                 sshTransfer(
-                                    execCommand: "git pull"),
+                                    execCommand: "git pull https://github.com/wj-mk/qa-devops-project"),
                             ]
                         )
                     ]
