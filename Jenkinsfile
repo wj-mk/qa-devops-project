@@ -15,7 +15,9 @@ pipeline{
                             verbose: true,
                             transfers: [
                                 sshTransfer(
-                                    execCommand: "cd qa-devops-project && git pull"),
+					execCommand: "cd qa-devops-project && git pull"),
+				sshTransfer(
+					execCommand: "cd qa-devops-project && sudo docker-compose build && docker-compose up -d"),
                             ]
                         )
                     ]
