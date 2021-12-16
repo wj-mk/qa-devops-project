@@ -21,6 +21,8 @@ pipeline {
                                     execCommand: "git clone -b jenkins1 https://github.com/wj-mk/qa-devops-project.git"),
                                 sshTransfer(
                                     execCommand: "cd qa-devops-project/ && sudo docker-compose up -d"),
+                                sshTransfer(
+                                    execCommand: "sudo docker-compose run qa-devops-project-1 python3 -m pytest")
                             ]
                         )
                     ]
