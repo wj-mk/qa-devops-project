@@ -15,7 +15,10 @@ pipeline {
                             configName: "test-build",
                             verbose: true,
                             transfers: [
-                                sshTransfer(execCommand: "git clone -b jenkins1 https://github.com/wj-mk/qa-devops-project.git")
+                                sshTransfer(
+                                    execCommand: "rm -rf qa-devops-project.git"),
+                                sshTrasnfer(
+                                    execCommand: "git clone -b jenkins1 https://github.com/wj-mk/qa-devops-project.git")
                             ]
                         )
                     ]
