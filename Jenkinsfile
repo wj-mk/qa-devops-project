@@ -19,7 +19,7 @@ pipeline{
 				sshTransfer(
 					execCommand: "cd qa-devops-project && docker-compose up -d"),
 				sshTransfer(
-					execCommand: "cd qa-devops-project && docker-compose exec flask-app bash cd tests && python3 -m pytest"),
+					execCommand: "cd qa-devops-project && docker-compose exec flask-app bash /tests/python3 -m pytest"),
 				sshTransfer(
 					execCommand: "docker tag flask-app bh909303/flask-app && docker push bh909303/flask-app"),
 				sshTransfer(
