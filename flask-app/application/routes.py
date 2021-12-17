@@ -38,7 +38,7 @@ def update_select():
     form = UpdateSelect()
     if request.method == 'POST' and form.validate_on_submit():
         id = form.id.data
-    return render_template('updates/<int:id>.html', form=form, exoplanets=exoplanets)
+    return render_template('updates.html', form=form, exoplanets=exoplanets)
 
 
 # This route has UPDATE functionality
