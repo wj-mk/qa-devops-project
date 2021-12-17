@@ -14,7 +14,7 @@ pipeline{
                                 sshTransfer(
 					execCommand: "cd qa-devops-project && git pull"),
 				sshTransfer(
-					execCommand: "export DATABASE_URI='${database_uri}'"),
+					execCommand: "export DATABASE_URI='${database_uri}' && EXPORT MYSQL_ROOT_PASSWORD=${password}"),
                 sshTransfer(
 					execCommand: "cd qa-devops-project && docker-compose build && docker-compose up -d"),
 				sshTransfer(

@@ -5,6 +5,8 @@ services:
     build: ./db
     volumes:
       - mysql-data:/var/lib/mysql
+    environment: 
+      MYSQL_ROOT_PASSWORD: PASSWORD
   flask-app:
     image: flask-app
     environment:
