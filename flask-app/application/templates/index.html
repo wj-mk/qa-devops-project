@@ -1,14 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
     <h2>Exoplanet Web-App</h2>
-    <h3>Welcome Carla, please view the exoplanets below:</h3>
+    <h3></h3>
     <hr>
-    <p>ID&nbsp;&nbsp;&nbsp;Planet&nbsp;&nbsp;&nbsp;&nbsp;System&nbsp;&nbsp;&nbsp;&nbsp;Mehthod&nbsp;&nbsp;&nbsp;&nbsp;Year</p>
     {% for exoplanet in exoplanets  %}
         <div>
-            <p>
-                {{exoplanet.id}}.&nbsp;&nbsp;&nbsp;{{ exoplanet.name }}&nbsp;&nbsp;&nbsp;&nbsp;{{exoplanet.system}}&nbsp;&nbsp;&nbsp;&nbsp;{{exoplanet.method}}&nbsp;&nbsp;&nbsp;&nbsp;{{exoplanet.year}}    
-            </p>
+            <p>   
+                {{exoplanet.id}}. Planet Name: <b>{{ exoplanet.name }}</b>, System Name: <b>{{exoplanet.system}}</b>, Discover Method: <b>{{exoplanet.method}}</b>, Discover Year: <b>{{exoplanet.year}}</b>,
         </div>
     {% endfor %}
 {% endblock %}
