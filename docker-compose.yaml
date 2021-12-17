@@ -4,7 +4,7 @@ services:
     image: flask-db
     build: ./db
     volumes:
-      - mysql-data: /var/lib/mysql
+      - mysql-data: /home/azureuser/mysql_datadir
   flask-app:
     image: flask-app
     environment:
