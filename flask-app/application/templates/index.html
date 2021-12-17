@@ -3,10 +3,11 @@
     <h2>Exoplanet Web-App</h2>
     <h3>Welcome Carla, please view the exoplanets below:</h3>
     <hr>
+    <p>ID&nbsp;&nbsp;&nbsp;Planet&nbsp;&nbsp;&nbsp;&nbsp;System&nbsp;&nbsp;&nbsp;&nbsp;Mehthod&nbsp;&nbsp;&nbsp;&nbsp;Year</p>
     {% for exoplanet in exoplanets  %}
         <div>
             <p>
-                {{exoplanet.id}}. Planet <b>{{ exoplanet.name }}</b> is in the <b>{{exoplanet.system}}</b> system.
+                {{exoplanet.id}}.&nbsp;&nbsp;&nbsp;{{ exoplanet.name }}&nbsp;&nbsp;&nbsp;&nbsp;{{exoplanet.system}}&nbsp;&nbsp;&nbsp;&nbsp;{{exoplanet.method}}&nbsp;&nbsp;&nbsp;&nbsp;{{exoplanet.year}}    
             </p>
         </div>
     {% endfor %}
