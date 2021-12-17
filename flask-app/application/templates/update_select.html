@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Update Exoplanet </h1>
+    <form action="" method="post" novalidate>
+        {{form.hidden_tag()}}
+        <p>
+            {{form.id.label}}
+            {{form.id (size=4)}}
+            {{form.submit}}
+        </p>
+    </form>
+
+
+    {% for exoplanet in exoplanets  %}
+        <div>
+            <p>
+                {{exoplanet.id}}. Planet <b>{{ exoplanet.name }}</b> is in the <b>{{exoplanet.system}}</b> system.
+            </p>
+        </div>
+    {% endfor %}
+{% endblock %}

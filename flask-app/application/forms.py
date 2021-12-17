@@ -19,3 +19,7 @@ class EditEntry(FlaskForm):
 class DeleteEntry(FlaskForm):
     id = IntegerField('Provide the Exoplanet ID', validators=[DataRequired()])
     submit = SubmitField("Delete Planet")
+
+class UpdateSelect(FlaskForm):
+    id = IntegerField('Provide the Exoplanet ID', validators=[DataRequired()])
+    submit = SubmitField("Select Planet")

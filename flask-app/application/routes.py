@@ -61,4 +61,3 @@ def delete():
         flash(f'Deleted {deletion}')
         return redirect(url_for('index'))
     return render_template('delete.html', form=form, exoplanets=exoplanets)
-
