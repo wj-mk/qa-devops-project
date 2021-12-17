@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for, request
 from application import app, db
-from application.forms import EditEntry, Exoplanet_Form, DeleteEntry
+from application.forms import EditEntry, Exoplanet_Form, DeleteEntry, UpdateSelect
 from application.models import Exoplanet
 
 # This route has READ functionality
@@ -31,6 +31,15 @@ def entry():
 
 # Navigation link to update is not possible without adding a route 
 # for just /update. It could be improved, but it works so lets move on.
+
+@app.route('/update', methods = ['GET', 'POST'])
+def update_select():
+    exoplanets = Exoplanet.query.all()
+    form = UpdateSelect()
+    if request.method == 'POST' and form.validate_on_submit():
+        id = form.id.data
+    return render_template('updates/<int:id>.html', form=form, exoplanets=exoplanets)
+
 
 # This route has UPDATE functionality
 @app.route('/update/<int:id>', methods = ['GET', 'POST'])
