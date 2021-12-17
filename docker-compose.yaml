@@ -5,10 +5,13 @@ services:
     build: ./db
     volumes:
       - mysql-data:/var/lib/mysql
+    environment: 
+      MYSQL_ROOT_PASSWORD: PASSWORD
+      MYSQL_USER: root
   flask-app:
     image: flask-app
     environment:
-      DATABASE_URI: "mysql+pymysql://root:password@mysql:3306/flask-db"
+      DATABASE_URI: DATABASE_URI
     build: ./flask-app
     ports:
     - target: 5000
