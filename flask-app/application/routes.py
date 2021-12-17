@@ -38,7 +38,8 @@ def update_select():
     form = UpdateSelect()
     if request.method == 'POST' and form.validate_on_submit():
         id = form.id.data
-    return render_template('updates.html', form=form, exoplanets=exoplanets)
+        return(redirect(url_for('update/<int:id>')))
+    return render_template('update_select.html', form=form, exoplanets=exoplanets)
 
 
 # This route has UPDATE functionality
@@ -54,7 +55,7 @@ def update(id):
         db.session.commit()
         flash(f'Updated exoplanet data for {form.name.data}')
         return(redirect(url_for('index')))
-    return render_template('update.html', title='Update Exoplanets', form=form, planet=planet)
+    return render_template('/update/<int:id>', title='Update Exoplanets', form=form, planet=planet)
 
 # This route has DELETE functionality
 @app.route('/delete', methods = ['GET', 'POST'])
